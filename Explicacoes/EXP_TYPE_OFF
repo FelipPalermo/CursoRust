@@ -1,0 +1,25 @@
+fn type_of<T>(_ : T) -> &'static str {: Esta linha define uma função chamada type_of. Ela é genérica em relação ao tipo T,
+o que significa que pode receber argumentos de qualquer tipo. 
+A função retorna uma referência a uma string estática (&'static str).
+
+_ : T: Aqui, _ é um nome de variável não utilizado, 
+indicando que o valor da variável não será usado. 
+O underscore (_) é uma convenção em Rust para indicar que uma variável está sendo ignorada.
+
+-> &'static str: Indica que a função retorna uma referência a uma string estática. 
+'static é um tempo de vida especial em Rust que significa que a string está disponível durante toda a execução do programa.
+
+return std::any::type_name::<T>();: Esta linha usa a função type_name do módulo std::any para obter o nome do tipo de T. 
+A função type_name retorna uma representação de string do tipo fornecido.
+
+A função type_of basicamente aceita um argumento de qualquer tipo (T), 
+ignora o valor real desse argumento (usando _), 
+e retorna o nome do tipo como uma string estática. 
+Isso pode ser útil em situações em que você deseja imprimir ou logar o tipo de uma variável em tempo de execução. 
+Por exemplo:
+
+fn main() {
+    let my_variable = 42;
+    let type_name = type_of(my_variable);
+    println!("Type of my_variable: {}", type_name);
+}
